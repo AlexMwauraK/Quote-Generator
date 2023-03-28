@@ -37,8 +37,8 @@
     const author = document.getElementById("author");
     const api_url = "https://api.quotable.io/random";
 
-    quote.innerHTML = "This is a default quote. Click on the Generate button to get a new quote.";
-    getquote(api_url);
+        quote.innerHTML = "loading >> generate";
+        getquote(api_url);
         async function getquote(url){
         const response = await fetch(url);
         var data = await response.json();
