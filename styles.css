@@ -70,6 +70,7 @@ body{
 a{
     text-decoration: none;
 }
+
 .main h2::after{
     content: '';
     width: 100px;
@@ -179,5 +180,12 @@ a{
       font-size: 14px;
       padding: 8px 16px;
     }
+  .main button:active,
+  .main button:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: inherit;
+}
   }
   
