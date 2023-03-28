@@ -23,9 +23,9 @@
         <blockquote id="quote">please wait....</blockquote>
         <span id="author">Wait...</span>
         <div>
-                <button class="rotate" onclick="getquote(api_url)">
-                <img src="/img/generate.png" alt="generate"> Generate
-                </button>
+            <button class="rotate" onclick="getquote(api_url)">
+                <img id="generate-img" src="/img/generate.png" alt="generate"> Generate
+              </button>
   
             <button onclick="tweet()"><img src="/img/tweet.png" alt="tweet"> Tweet</button>
         </div>
@@ -38,16 +38,21 @@
     const api_url = "https://api.quotable.io/random";
 
     async function getquote(url){
-    const response = await fetch(url);
-    var data = await response.json();
-    console.log(data);
-    quote.innerHTML = data.content;
-    author.innerHTML = data.author;
-    }
-    getquote(api_url);
+        const response = await fetch(url);
+        var data = await response.json();
+        console.log(data);
+        quote.innerHTML = data.content;
+        author.innerHTML = data.author;
+        document.getElementById('generate-img').classList.add('rotate');
+        setTimeout(() => {
+          document.getElementById('generate-img').classList.remove('rotate');
+        }, 500);
+      }
+      
 //share to twiter
 function tweet(){
     window.open( href="https://twitter.com/intent/tweet?text=" + quote.innerHTML + "   --" +author.innerHTML, "Tweet", "width=600px, height=600px"); 
 }
+
 </script>
 </html>
